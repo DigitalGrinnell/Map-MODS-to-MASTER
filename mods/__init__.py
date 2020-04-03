@@ -188,8 +188,8 @@ def process_dict(thing, action):         # given one thing, a dict, and a specif
   if ok:                                 # if the action worked...
     thing = ok                           # replace thing's value with whatever the action returned
     return ok                            # ...and return the same from this function
-    # skip(thing)                        # do NOT skip this...that should have happened in the action function!
-  return False
+  else:
+    return skip(thing)                          # do NOT skip this...that should have happened in the action function!
 
 
 # process many things ...as a list of dicts
@@ -206,6 +206,8 @@ def process_list_dict(things, action):    # same as above, but given a list of t
 def process_dict_list(thing, action):      # so far only used for 'language'
   if 'languageTerm' in thing:
     thing['languageTerm'] = process_dict(thing['languageTerm'], action)
+  else:
+    return skip(thing)
   return False
 
 
@@ -504,14 +506,16 @@ def subject_action(s):
         s['@authority'] = constant.DONE + heading
       else:
         heading = 'Keywords'
-        ok = multi(heading, s['topic'])
-        if ok:
-          s['topic'] = ok
-          c = c - 1
-        else:
-          skip(s['topic'])
+      ok = multi(heading, s['topic'])
+      if ok:
+        s['topic'] = ok
+        c = c - 1
+      else:
+        skip(s['topic'])
     if c > 0:
       return skip(s)
+    else:
+      return ok
   except Exception as e:
     exception(e, s)
 
