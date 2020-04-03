@@ -1,0 +1,116 @@
+class Data:
+
+  ## empty ordered dict of csv column headings from Digital_Grinnell_MODS_Master
+  csv_row_structure = {
+    'PID': '',
+    'WORKSPACE': '',
+    'Import_Index': '',
+    'PARENT': '',
+    'CMODEL': '',
+    'SEQUENCE': '',
+    'OBJ': '',
+    'TRANSCRIPT': '',
+    'THUMBNAIL': '',
+    'Title': '',
+    'Alternative_Titles': '',
+    'Personal_Names~Roles': '',
+    'Corporate_Names~Roles': '',
+    'Hidden_Creator': '',
+    'Abstract': '',
+    'Pull_Quotes': '',
+    'Index_Date': '',
+    'Other_Date~Display_Label': '',
+    'Date_Issued': '',
+    'Date_Captured': '',
+    'Publisher': '',
+    'Place_Of_Publication': '',
+    'Public_Notes~Types': '',
+    'Private_Notes~Types': '',
+    'Citations': '',
+    'Keywords': '',
+    'LCSH_Subjects': '',
+    'Subjects_Temporal': '',
+    'Subjects_Geographic': '',
+    'Subjects_Names~Types': '',
+    'Coordinate': '',
+    'Type_of_Resource': '',
+    'Genre': '',
+    'Extent': '',
+    'Form': '',
+    'MIME_Type': '',
+    'Digital_Origin': '',
+    'Language_Names~Codes': '',
+    'Local_Identifier': '',
+    'Physical_Location': '',
+    'Shelf_Locator': '',
+    'Classifications~Authorities': '',
+    'Related_Items~Types': '',
+    'Access_Condition': '',
+    'Handle': '',
+    'Import_Source': '',
+    'Primary_Sort': '',
+  }
+
+  ## ordered list of csv column headings from Digital_Grinnell_MODS_Master
+  csv_headings = [
+    'PID',
+    'WORKSPACE',
+    'Import_Index',
+    'PARENT',
+    'CMODEL',
+    'SEQUENCE',
+    'OBJ',
+    'TRANSCRIPT',
+    'THUMBNAIL',
+    'Title',
+    'Alternative_Titles',
+    'Personal_Names~Roles',
+    'Corporate_Names~Roles',
+    'Hidden_Creator',
+    'Abstract',
+    'Pull_Quotes',
+    'Index_Date',
+    'Other_Date~Display_Label',
+    'Date_Issued',
+    'Date_Captured',
+    'Publisher',
+    'Place_Of_Publication',
+    'Public_Notes~Types',
+    'Private_Notes~Types',
+    'Citations',
+    'Keywords',
+    'LCSH_Subjects',
+    'Subjects_Temporal',
+    'Subjects_Geographic',
+    'Subjects_Names~Types',
+    'Coordinate',
+    'Type_of_Resource',
+    'Genre',
+    'Extent',
+    'Form',
+    'MIME_Type',
+    'Digital_Origin',
+    'Language_Names~Codes',
+    'Local_Identifier',
+    'Physical_Location',
+    'Shelf_Locator',
+    'Classifications~Authorities',
+    'Related_Items~Types',
+    'Access_Condition',
+    'Handle',
+    'Import_Source',
+    'Primary_Sort',
+  ]
+
+  ## global csv_row
+  csv_row = ['']*len(csv_headings)
+
+  ## global filenames and files
+
+  collection_log_filename = ''
+  collection_log_file = None
+
+  object_log_filename = ''
+  object_log_file = None
+
+
