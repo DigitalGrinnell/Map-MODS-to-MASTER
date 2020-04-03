@@ -501,17 +501,9 @@ def subject_action(s):
       if '@authority' in s and s['@authority'] == 'lcsh':
         heading = 'LCSH_Subjects'
         c = c - 1
+        s['@authority'] = constant.DONE + heading
       else:
         heading = 'Keywords'
-      if type(s['topic']) is list:
-        for idx, t in s['topic']:
-          ok = multi(heading, t)
-          if ok:
-            s['topic'][idx] = ok
-            c = c - 1
-          else:
-            skip(s['topic'][idx])
-      else:
         ok = multi(heading, s['topic'])
         if ok:
           s['topic'] = ok
