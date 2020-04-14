@@ -107,9 +107,9 @@ def skip(tag):
   my_data.Data.object_log_file.write('  ' + msg + '\n')
   my_data.Data.collection_log_file.write('    ' + msg + '\n')
 
-  col = column('WORKSPACE')
-  target = my_data.Data.csv_row[col]
-  my_data.Data.csv_row[col] += msg + ', '
+  # col = column('WORKSPACE')
+  # target = my_data.Data.csv_row[col]
+  # my_data.Data.csv_row[col] += msg + ', '
   
   return False            # always returns False !
 
@@ -429,13 +429,15 @@ def physicalDescription_action(desc):
       else:
         skip(desc['extent'])
     if 'form' in desc:
-      ok = single('Form', desc['form'])
+      ok = single('Form~AuthorityURI', desc['form'])
       if ok:
         desc['form'] = ok
       else:
         skip(desc['form'])
     if 'internetMediaType' in desc:
       mime = getMIME(desc['internetMediaType'])
+      if (desc['internetMediaType'] == 'text/plain'):
+        mime = 'text/plain';
       if mime:
         ok = single('MIME_Type', mime)
         if ok:

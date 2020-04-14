@@ -7,7 +7,7 @@
 import glob, xmltodict, mimetypes
 
 # import my packages
-import my_data, my_colorama, constant
+import my_data, my_colorama, mods, constant
 
 # initialize the mimetypes pacakge
 mimetypes.init()
@@ -54,6 +54,8 @@ def clean(x):
 
 def process_collection(collection, csv_file, collection_log_file):  # do everything related to a specified collection
   import csv, my_data, mods, json, time, tempfile
+  
+  import_index = 0;
 
   csv_writer = csv.writer(csv_file, delimiter='\t', quotechar='"', quoting=csv.QUOTE_MINIMAL)
   csv_writer.writerow(my_data.Data.csv_headings)
@@ -127,7 +129,7 @@ def process_collection(collection, csv_file, collection_log_file):  # do everyth
 
       # genre: process simple, single top-level element
       if 'genre' in doc['mods']:
-        ok = mods.process_simple(doc['mods']['genre'], 'Genre')
+        ok = mods.process_simple(doc['mods']['genre'], 'Genre~AuthorityURI')
         if ok:
           doc['mods']['genre'] = ok
 
@@ -199,9 +201,18 @@ def process_collection(collection, csv_file, collection_log_file):  # do everyth
 
       # typeOfResource: process simple, single top-level element
       if 'typeOfResource' in doc['mods']:
-        ok = mods.process_simple(doc['mods']['typeOfResource'], 'Type_of_Resource')
+        ok = mods.process_simple(doc['mods']['typeOfResource'], 'Type_of_Resource~AuthorityURI')
         if ok:
           doc['mods']['typeOfResource'] = ok
+
+      # add a link to this object's .log file into WORKSPACE
+      col = mods.column('WORKSPACE')
+      my_data.Data.csv_row[col] = constant.LINK + my_data.Data.object_log_filename
+      
+      # increment and add import_index to Import_Index column
+      col = mods.column('Import_Index')
+      import_index += 1
+      my_data.Data.csv_row[col] = import_index
 
       # all done with processing... write out the csv_row[]
       csv_writer.writerow(my_data.Data.csv_row)
@@ -222,7 +233,7 @@ def process_collection(collection, csv_file, collection_log_file):  # do everyth
       # print what's left of doc['mods'] to a temporary tmp file
       tmp = tempfile.TemporaryFile('w+')
       tmp.write(json.dumps(doc['mods'], sort_keys=True, indent=2))
-
+      
     # close the object_log_file
     my_data.Data.object_log_file.close()
 

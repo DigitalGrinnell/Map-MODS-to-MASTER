@@ -1,0 +1,24 @@
+/usr/local/Cellar/python/3.7.7/bin/python3 /Users/markmcfate/GitHub/Map-MODS-to-MASTER/main.py
+-- Processing: /Volumes/LIBRARY/ALLSTAFF/DG-Metadata-Review-2020-r1/ancient-coins/grinnell_17339_MODS.log
+  Exception: name 'false' is not defined
+Could not guess MIME type from 'application/warc'.
+-- Processing: /Volumes/LIBRARY/ALLSTAFF/DG-Metadata-Review-2020-r1/archives-suppressed/grinnell_11085_MODS.log
+  Exception: name 'false' is not defined
+-- Processing: /Volumes/LIBRARY/ALLSTAFF/DG-Metadata-Review-2020-r1/campus-collections/grinnell_geology_MODS.log
+  Exception: name 'false' is not defined
+-- Processing: /Volumes/LIBRARY/ALLSTAFF/DG-Metadata-Review-2020-r1/college-life/grinnell_26848_MODS.log
+  Exception: name 'null' is not defined
+-- Processing: /Volumes/LIBRARY/ALLSTAFF/DG-Metadata-Review-2020-r1/faulconer/grinnell_recent_art_acquisitions_MODS.log
+  Exception: name 'null' is not defined
+-- Processing: /Volumes/LIBRARY/ALLSTAFF/DG-Metadata-Review-2020-r1/faulconer/grinnell_soviet_graphic_art_MODS.log
+  Exception: name 'null' is not defined
+Operation failed: Not a directory
+Could not guess MIME type from '3 pdf files, 2 jpg files, 3 wav files'.
+Could not guess MIME type from '3 pdf files, 2 jpg files, 3 wav files'.
+Could not guess MIME type from '3 pdf files, 2 jpg files, 3 wav files'.
+Could not guess MIME type from '3 pdf files, 2 jpg files, 3 wav files'.
+Could not guess MIME type from '3 pdf files, 2 jpg files, 3 wav files'.
+Could not guess MIME type from 'audio/vnd.wave'.
+Could not guess MIME type from '3 pdf files, 2 jpg files, 3 wav files'.
+
+Process finished with exit code 0
