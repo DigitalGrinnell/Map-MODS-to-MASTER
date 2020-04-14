@@ -207,7 +207,7 @@ def process_collection(collection, csv_file, collection_log_file):  # do everyth
 
       # add a link to this object's .log file into WORKSPACE
       col = mods.column('WORKSPACE')
-      my_data.Data.csv_row[col] = constant.LINK + my_data.Data.object_log_filename
+      my_data.Data.csv_row[col] = my_data.Data.object_log_filename
       
       # increment and add import_index to Import_Index column
       col = mods.column('Import_Index')
